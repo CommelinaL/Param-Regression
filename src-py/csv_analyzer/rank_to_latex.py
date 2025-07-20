@@ -1,0 +1,17 @@
+import pandas as pd
+from csv_to_latex import csv_to_latex_pandas
+
+input_file = r"D:\BSplineLearning\Param-Regression\src-cpp\B-spline-curve-fitting\test_30_MLP_wo_npc_250000.csv"
+output_file = 'csv_analyzer\\rank_30_MLP_wo_npc_250000.tex'
+df = pd.read_csv(input_file)
+df.drop(columns='Label_local', axis=1, inplace=True)
+df.drop(columns='Regressor local', axis=1, inplace=True)
+df.drop([0, 1, 2,3,4], axis=0, inplace=True)
+df = df.transpose()
+print(df)
+print(df.sum(axis=0))
+print(df.sum(axis=1))
+df.to_csv('tmp.csv')
+new_df = pd.read_csv('tmp.csv')
+# Convert to LaTeX
+csv_to_latex_pandas(new_df, output_file, is_int=True)

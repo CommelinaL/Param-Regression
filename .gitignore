@@ -1,0 +1,7 @@
+.vs
+.vscode
+x64
+Release
+Debug
+__pycache__
+saved_model
