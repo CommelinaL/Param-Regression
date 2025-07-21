@@ -47,6 +47,8 @@ Compare with idealized classifier approach:
 2. Run prediction: `src-py/inference/seq_pred_del_feat.py`
 3. Execute comparison: `src-cpp/B-spline-curve-fitting/main_scripts/main-8. superior count.cpp`
 
+![Local Image](./clash-interpolation.jpeg "clash")
+
 ## Method Validation
 
 These steps validate the method's performance and optimize parameters:
@@ -73,7 +75,7 @@ Determine optimal parameters for regression models:
 3. Execute tests: `src-cpp/B-spline-curve-fitting/main_scripts/main-4. testing local len.cpp`
 
 ## System Requirements
-**Operating System**: Windows only
+**Operating System**: Windows 10 or 11
 
 ## Usage Notes
 
