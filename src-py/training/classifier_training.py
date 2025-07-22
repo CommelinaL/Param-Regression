@@ -31,7 +31,7 @@ if __name__ == '__main__':
                                eval_metric="mlogloss",
                                early_stopping_rounds=10,
                                seed=27)
-    save_path = os.path.join('saved_model', 'enlarged_heuristic')
+    save_path = 'saved_model'
     if os.path.exists(save_path) == False:
         os.makedirs(save_path)
     model_name = "XGBClassifier"

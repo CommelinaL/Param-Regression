@@ -14,7 +14,7 @@ def read_knots(file_path):
     return np.loadtxt(file_path)
 
 # 读取多组控制点和节点
-draw_id = [8,9]  #取值是[0-8]
+draw_id = [8,9] 
 sample_id = "9247"
 crv_dir = "crv\\test_20"
 curves = []
@@ -24,7 +24,6 @@ for i in draw_id:
     curves.append((control_points, knots))
 
 matrix_res = np.loadtxt(os.path.join(crv_dir, sample_id,'metric_res.txt'))
-print(matrix_res.dtype)
 print(matrix_res)
 
 label_name = ["Uniform ", "Chord length ", "Centripetal ", "Universal ", "Foley ", "Fang ", "Xu ", "ZCM ", "Classifier ", "Regressor ", "Label ", "Cls Label "]
@@ -93,7 +92,6 @@ font2 = {'family': 'Times New Roman',
 
 ax.legend(fontsize="large", loc='upper right')
 
-# plt.legend(loc='upper right')
 
 
 

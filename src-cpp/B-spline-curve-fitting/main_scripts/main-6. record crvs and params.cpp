@@ -193,7 +193,7 @@ int main(int argc, char** argv)
 		// Regressor local
 		LocalCurves(pts, intervals[1], local_crv[1], local_cost[1]);
 		// Interpolating with best local heuristic methods
-		std::string best_heuristic_path = "D:\\BSplineLearning\\pseudo_label\\seq_pred\\enlarged_heuristic\\test_" + std::to_string(point_num) + "\\" + file_id + "\\Label.bin";
+		std::string best_heuristic_path = "D:\\BSplineLearning\\pseudo_label\\seq_pred\\meaningful_examples\\test_" + std::to_string(point_num) + "\\" + file_id + "\\Label.bin";
 		readVectorFromFile(intervals[2], best_heuristic_path);
 		if (intervals[2].empty()) {
 			for (int j = 0; j < point_num - 3; j++) {
