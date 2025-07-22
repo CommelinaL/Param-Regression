@@ -48,12 +48,13 @@ Compare with idealized classifier approach:
 3. Execute comparison: `src-cpp/B-spline-curve-fitting/main_scripts/main-8. superior count.cpp`
 
 ### 7. Meaningful examples
-Test the proposed method on illustrative examples, such as the "clash" logo or rolling door slats, and reproduce the figure below
+Test the proposed method on illustrative examples, such as the "clash" logo or rolling door slats, and reproduce the figures below
 1. Run prediction: `src-py/inference/meaningful_example.py`
 2. Generate curve data: `src-cpp/B-spline-curve-fitting/main_scripts/main-10. meaningful example.cpp`
 3. Plot interpolating curves: `DrawMeaningfulExample.py`
 
 ![Local Image](./clash-interpolation.jpeg "clash")
+![Local Image](./rolling_door_slat-interpolation.jpeg "rolling door slat")
 
 ## Method Validation
 
