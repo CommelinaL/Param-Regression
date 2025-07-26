@@ -105,7 +105,8 @@ ax.legend(fontsize="large", loc="upper right")
 
 # 连接额外数据点的折线
 ax.plot(data_points[:, 0], data_points[:, 1], color='black', linestyle='--', linewidth=0.7, label='Connected Line')
-
+if sample_id == "clash":
+    ax.invert_xaxis()
 
 if len(draw_id)==0:
     ax.set_xlabel('x')
