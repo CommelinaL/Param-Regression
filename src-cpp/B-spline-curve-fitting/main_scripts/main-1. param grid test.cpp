@@ -76,8 +76,9 @@ int main(int argc, char** argv) {
 	int seq_len = 15;
 	std::string model_name = "XGBoost";
 	std::string param_name = "n_estimators";
-	std::string DataDir = "D:\\BSplineLearning\\variable_length\\split_dataset_" + std::to_string(seq_len) + "\\test\\"; // The directory where sample is located
-	std::string pred_dir = "D:\\BSplineLearning\\variable_length\\split_dataset_" + std::to_string(seq_len) + "\\param_grid_test\\" + model_name + "_on_" + param_name + "\\";
+	std::string project_root = PROJECT_ROOT;
+	std::string DataDir = project_root + "\\variable_length\\split_dataset_" + std::to_string(seq_len) + "\\test\\"; // The directory where sample is located
+	std::string pred_dir = project_root + "\\variable_length\\split_dataset_" + std::to_string(seq_len) + "\\param_grid_test\\" + model_name + "_on_" + param_name + "\\";
 	std::string data_dir_tpl = DataDir + "*";
 	std::vector<double> method_cost;
 	std::vector<std::string> param;

@@ -57,8 +57,9 @@ int main(int argc, char** argv)
 	CorrectChordInterp,	RefinedCentripetalInterp, ModifiedChordInterp, ZCMInterp };
 
 	int	num = 250000; // Quantity of raw data generated per round
-	string	DataFileName = "D:\\BSplineLearning\\variable_length\\PointData_" + to_string(POINTS_NUM); // Raw data folder name
-	string	SaveDataFileName = "D:\\BSplineLearning\\variable_length\\Label_" + to_string(POINTS_NUM); // Generated labeled data folder name (final)
+	string project_root = PROJECT_ROOT;
+	string DataFileName = project_root + "\\variable_length\\PointData_" + to_string(POINTS_NUM); // Raw data folder name
+	string	SaveDataFileName = project_root + "\\variable_length\\Label_" + to_string(POINTS_NUM); // Generated labeled data folder name (final)
 	create_directory_if_not_exists(DataFileName);
 	create_directory_if_not_exists(SaveDataFileName);
 

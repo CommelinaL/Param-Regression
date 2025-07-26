@@ -55,11 +55,12 @@ double eval_curvature(const std::vector<glm::dvec3>& points, const std::vector<d
 
 int main(int argc, char** argv) {
 	int point_num = 15;
-	std::string DataDir = "D:\\BSplineLearning\\variable_length\\split_dataset_" + std::to_string(point_num) + "\\test\\"; // The directory where sample is located
+	std::string project_root = PROJECT_ROOT;
+	std::string DataDir = project_root + "\\variable_length\\split_dataset_" + std::to_string(point_num) + "\\test\\"; // The directory where sample is located
 	int dataset_size = 250000;
 	std::string del_feat = "npc";
-	std::string PredDir = "D:\\BSplineLearning\\variable_length\\split_dataset_" + std::to_string(point_num) + "\\model_test\\" + std::to_string(dataset_size) + "_wo_" + del_feat + "\\";
-	std::string CostDir = "D:\\BSplineLearning\\variable_length\\cost\\split_dataset_" + std::to_string(point_num) + "\\test\\";
+	std::string PredDir = project_root + "\\variable_length\\split_dataset_" + std::to_string(point_num) + "\\model_test\\" + std::to_string(dataset_size) + "_wo_" + del_feat + "\\";
+	std::string CostDir = project_root + "\\variable_length\\cost\\split_dataset_" + std::to_string(point_num) + "\\test\\";
 	std::string NewCostDir = CostDir + std::to_string(dataset_size) + "_wo_" + del_feat + "\\";
 	create_directory_if_not_exists(CostDir);
 	create_directory_if_not_exists(NewCostDir);

@@ -88,11 +88,12 @@ int main(int argc, char** argv) {
 	int dataset_size = 250000;
 	std::string del_feat = "npc";
 	std::string model_name = "mlp";
-	std::string DataDir = "D:\\BSplineLearning\\variable_length\\split_dataset_" + std::to_string(seq_len) + "\\test\\"; // The directory where sample is located
-	std::string pred_dir = "D:\\BSplineLearning\\variable_length\\" + model_name + "_wo_" + del_feat + "\\test_local_len_on" + std::to_string(seq_len) + "\\" + std::to_string(dataset_size) + "\\";
-	std::string cost_dir = "D:\\BSplineLearning\\variable_length\\split_dataset_" + std::to_string(seq_len) + "\\cost\\local_len_size_test\\" + model_name + "_wo_" + del_feat + "\\";
+	std::string project_root = PROJECT_ROOT;
+	std::string DataDir = project_root + "\\variable_length\\split_dataset_" + std::to_string(seq_len) + "\\test\\"; // The directory where sample is located
+	std::string pred_dir = project_root + "\\variable_length\\" + model_name + "_wo_" + del_feat + "\\test_local_len_on" + std::to_string(seq_len) + "\\" + std::to_string(dataset_size) + "\\";
+	std::string cost_dir = project_root + "\\variable_length\\split_dataset_" + std::to_string(seq_len) + "\\cost\\local_len_size_test\\" + model_name + "_wo_" + del_feat + "\\";
 	std::string data_dir_tpl = DataDir + "*";
-	std::string other_cost_dir = "D:\\BSplineLearning\\variable_length\\cost\\split_dataset_" + std::to_string(seq_len) + "\\test\\";
+	std::string other_cost_dir = project_root + "\\variable_length\\cost\\split_dataset_" + std::to_string(seq_len) + "\\test\\";
 	std::vector<int> top_cnt;
 	std::vector<int> top_3_cnt;
 	std::vector<double> method_cost;

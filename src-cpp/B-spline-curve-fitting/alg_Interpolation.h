@@ -3,6 +3,7 @@
 #include <vector>
 
 #define PI 3.1415926
+#define PROJECT_ROOT "D:\\BSplineLearning"
 
 void GlobalInterp(const std::vector<glm::dvec3>& points, int degree, const std::vector<double>& knots, 
 					const std::vector<double>& param, std::vector<glm::dvec3>& controlPts);

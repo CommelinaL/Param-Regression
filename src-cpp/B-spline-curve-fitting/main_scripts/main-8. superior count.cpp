@@ -59,10 +59,11 @@ int main(int argc, char** argv) {
 	std::string model_name = "MLP";
 	std::string model_file_name = "MLP with manual feature.bin";
 	std::string del_feat = "npc";
-	std::string DataDir = "D:\\BSplineLearning\\sequential_data\\test_" + std::to_string(point_num) + "\\"; // The directory where sample is located
-	std::string PredDir = "D:\\BSplineLearning\\pseudo_label\\seq_pred\\data_" + std::to_string(dataset_size) + "_wo_" + del_feat + "\\test_" + std::to_string(point_num) + "\\";
-	std::string OtherCostDir = "D:\\BSplineLearning\\pseudo_label\\cost\\test_" + std::to_string(point_num) + "\\";
-	std::string CostDir = "D:\\BSplineLearning\\pseudo_label\\cost\\data_" + std::to_string(dataset_size) + "_wo_" + del_feat + "\\" + model_name + "\\test_" + std::to_string(point_num) + "\\";
+	std::string project_root = PROJECT_ROOT;
+	std::string DataDir = project_root + "\\sequential_data\\test_" + std::to_string(point_num) + "\\"; // The directory where sample is located
+	std::string PredDir = project_root + "\\pseudo_label\\seq_pred\\data_" + std::to_string(dataset_size) + "_wo_" + del_feat + "\\test_" + std::to_string(point_num) + "\\";
+	std::string OtherCostDir = project_root + "\\pseudo_label\\cost\\test_" + std::to_string(point_num) + "\\";
+	std::string CostDir = project_root + "\\pseudo_label\\cost\\data_" + std::to_string(dataset_size) + "_wo_" + del_feat + "\\" + model_name + "\\test_" + std::to_string(point_num) + "\\";
 	create_directory_if_not_exists(CostDir);
 	int superior_cnt = 0;
 	std::string data_dir_tpl = DataDir + "*";
@@ -139,7 +140,7 @@ int main(int argc, char** argv) {
 			assert(cost_regress > std::numeric_limits<double>::epsilon());
 			// Testing local loss of regressors and heuristic methods
 			std::vector<double> best_heuristic_intervals;
-			std::string best_heuristic_path = "D:\\BSplineLearning\\pseudo_label\\seq_pred\\test_" + std::to_string(point_num) + "\\" + file_id + "\\Label.bin";
+			std::string best_heuristic_path = project_root + "\\pseudo_label\\seq_pred\\test_" + std::to_string(point_num) + "\\" + file_id + "\\Label.bin";
 			readVectorFromFile(best_heuristic_intervals, best_heuristic_path);
 			if (best_heuristic_intervals.empty()) {
 				for (int j = 0; j < point_num - 4 + 1; j++) {

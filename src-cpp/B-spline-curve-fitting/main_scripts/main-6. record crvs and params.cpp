@@ -128,9 +128,10 @@ int main(int argc, char** argv)
 	int dataset_size = 250000;
 	std::string del_feat = "npc";
 	std::string pred_name = "MLP with manual feature.bin";
-	std::string DataDir = "D:\\BSplineLearning\\sequential_data\\test_" + std::to_string(point_num) + "\\";
-	std::string PredDir = "D:\\BSplineLearning\\pseudo_label\\seq_pred\\data_" + std::to_string(dataset_size) + "_wo_" + del_feat + "\\test_" + std::to_string(point_num) + "\\";
-	std::string output_dir = "D:\\BSplineLearning\\Param-Regression\\crv\\test_" + std::to_string(point_num) + "\\" + file_id + "\\";
+	std::string project_root = PROJECT_ROOT;
+	std::string DataDir = project_root + "\\sequential_data\\test_" + std::to_string(point_num) + "\\";
+	std::string PredDir = project_root + "\\pseudo_label\\seq_pred\\data_" + std::to_string(dataset_size) + "_wo_" + del_feat + "\\test_" + std::to_string(point_num) + "\\";
+	std::string output_dir = project_root + "\\Param-Regression\\crv\\test_" + std::to_string(point_num) + "\\" + file_id + "\\";
 	std::string local_output_dir = output_dir + "local\\";
 	std::vector<double> method_cost(12, 0);
 	std::vector<std::vector<double>> params(12);
@@ -164,7 +165,7 @@ int main(int argc, char** argv)
 			assert(method_cost[i] > std::numeric_limits<double>::epsilon());
 		}
 		// Parametrization with classifier
-		std::string class_path = "D:\\BSplineLearning\\pseudo_label\\seq_pred\\class\\test_" + std::to_string(point_num) + "\\" + file_id + "-r.txt";
+		std::string class_path = project_root + "\\pseudo_label\\seq_pred\\class\\test_" + std::to_string(point_num) + "\\" + file_id + "-r.txt";
 		std::ifstream class_file(class_path);
 		vector<int> minis;
 		minis.resize(pts.size() - 3);
@@ -193,7 +194,7 @@ int main(int argc, char** argv)
 		// Regressor local
 		LocalCurves(pts, intervals[1], local_crv[1], local_cost[1]);
 		// Interpolating with best local heuristic methods
-		std::string best_heuristic_path = "D:\\BSplineLearning\\pseudo_label\\seq_pred\\meaningful_examples\\test_" + std::to_string(point_num) + "\\" + file_id + "\\Label.bin";
+		std::string best_heuristic_path = project_root + "\\pseudo_label\\seq_pred\\meaningful_examples\\test_" + std::to_string(point_num) + "\\" + file_id + "\\Label.bin";
 		readVectorFromFile(intervals[2], best_heuristic_path);
 		if (intervals[2].empty()) {
 			for (int j = 0; j < point_num - 3; j++) {
