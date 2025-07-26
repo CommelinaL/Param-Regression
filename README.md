@@ -37,7 +37,7 @@ The repository contains source code in two languages:
 
 The main C++ files are located in `src-cpp/B-spline-curve-fitting/main_scripts/`.
 
-1. Clone the repository to a local path (e.g., `D:\BSplineLearning`).
+1. Clone the repository to a local path (e.g., `D:\BSplineLearning`). This path will be referred to as your `PROJECT_ROOT`.
 2. Update the `PROJECT_ROOT` path:
    - In C++: modify the macro `PROJECT_ROOT` in `src-cpp/B-spline-curve-fitting/alg_Interpolation.h`.
    - In Python: modify the string `PROJECT_ROOT` in `src-py/dataset.py`.
