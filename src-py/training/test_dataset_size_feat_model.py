@@ -60,19 +60,15 @@ def evaluate_model(model, X_train, X_test, y_train, y_test, size, save = True):
             "train_time": train_time * 1e3, "test_time": test_time * 1e3}
 
 # Data preprocessing
-root_dir = "/home/lsy/pseudo_label/heuristic_split_dataset (2)"
+root_dir = "/home/lsy/pseudo_label/heuristic_split_dataset"
 
-train_dataset = FlatData("/home/lsy/pseudo_label/sup_500k", "train")
+train_dataset = FlatData("/home/lsy/pseudo_label/train_500k", "train")
 test_dataset = FlatData(os.path.join(root_dir, "test"), "test")
 sup_root_dir = "/home/lsy/pseudo_label/supplement"
 sup_test_dataset = FlatData(os.path.join(sup_root_dir, "test"), "test")
-# sup2_dataset = FlatData(os.path.join(sup_root_dir, "train"), "train")
-#sup3_dataset = FlatData(r"D:\BSplineLearning\pseudo_label\sup_100k", "train")
 
-train_point_list = train_dataset.point_list
-train_target_list = train_dataset.target_list
-# train_point_list = train_dataset.point_list + sup2_dataset.point_list
-# train_target_list = train_dataset.target_list + sup2_dataset.target_list
+train_point_list = train_dataset.point_list[:250000]
+train_target_list = train_dataset.target_list[:250000]
 test_point_list = test_dataset.point_list + sup_test_dataset.point_list
 test_target_list = test_dataset.target_list + sup_test_dataset.target_list
 

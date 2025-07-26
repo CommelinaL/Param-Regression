@@ -52,8 +52,7 @@ root_dir = r"D:\BSplineLearning\variable_length\split_dataset_" + str(local_len)
 
 # train_dataset = FlatData(os.path.join(root_dir, "train"), "train")
 test_dataset = FlatData(os.path.join(root_dir, "test"), "test")
-# sup_train_dataset = FlatData(r"D:\BSplineLearning\variable_length\Label_sup_"+str(local_len), "train")
-train_dataset = FlatData(r"D:\BSplineLearning\variable_length\Label_sup_500k_"+str(local_len), "train")
+train_dataset = FlatData(r"D:\BSplineLearning\variable_length\train_500k_"+str(local_len), "train")
 
 train_point_list = train_dataset.point_list
 train_target_list = train_dataset.target_list

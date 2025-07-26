@@ -47,18 +47,12 @@ if os.path.exists(root_dir) == False:
     source_dir = r"E:\BSplineLearning\src-cpp\B-spline-curve-fitting\LabelledData"
     process_files(source_dir, root_dir, test_ratio=0.2)
 
-root_dir = r"D:\BSplineLearning\pseudo_label\heuristic_split_dataset"
-
 # train_dataset = FlatData(os.path.join(root_dir, "train"), "train")
 test_dataset = FlatData(os.path.join(root_dir, "test"), "test")
 sup_root_dir = r"D:\BSplineLearning\pseudo_label\supplement"
 sup_test_dataset = FlatData(os.path.join(sup_root_dir, "test"), "test")
-# sup2_dataset = FlatData(os.path.join(sup_root_dir, "train"), "train")
-# sup3_dataset = FlatData(r"D:\BSplineLearning\pseudo_label\sup_100k", "train")
-train_dataset = FlatData(r"D:\BSplineLearning\pseudo_label\sup_500k", "train")
+train_dataset = FlatData(r"D:\BSplineLearning\pseudo_label\train_500k", "train")
 
-# train_point_list = train_dataset.point_list + sup2_dataset.point_list + sup3_dataset.point_list
-# train_target_list = train_dataset.target_list + sup2_dataset.target_list + sup3_dataset.target_list
 train_point_list = train_dataset.point_list
 train_target_list = train_dataset.target_list
 test_point_list = test_dataset.point_list + sup_test_dataset.point_list
