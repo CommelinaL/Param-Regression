@@ -2,7 +2,8 @@ import os
 import numpy as np
 import pandas as pd
 import sys
-sys.path.append(r"D:\BSplineLearning\Param-Regression\src-py")
+from dataset import PROJECT_ROOT
+sys.path.append(os.path.join(PROJECT_ROOT, "Param-Regression", "src-py"))
 from tqdm import tqdm
 import pickle
 import shutil
@@ -16,9 +17,9 @@ if __name__ == "__main__":
     dataset_size = 250000
     seq_len = 15
     del_feat = "npc"
-    model_dir = "saved_model\\data_" + str(dataset_size) + "_wo_" + del_feat
-    data_dir = r"D:\BSplineLearning\variable_length\split_dataset_"+str(seq_len)+r"\test"
-    output_root_dir = r"D:\BSplineLearning\variable_length\split_dataset_"+str(seq_len) + "\\model_test\\"+str(dataset_size) + "_wo_" + del_feat
+    model_dir = os.path.join(PROJECT_ROOT, "Param-Regression", "src-py", "saved_model", f"data_{dataset_size}_wo_{del_feat}")
+    data_dir = os.path.join(PROJECT_ROOT, "variable_length", "split_dataset_" + str(seq_len), "test")
+    output_root_dir = os.path.join(PROJECT_ROOT, "variable_length", "split_dataset_" + str(seq_len), "model_test", str(dataset_size) + "_wo_" + del_feat)
 
     model_list = os.listdir(model_dir)
     # model_name_list = ["PLS", "Linear Regression", "Decision Tree", "Quadratic Regression", "MLP with manual feature", 

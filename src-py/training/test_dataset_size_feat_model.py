@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
 import sys
-sys.path.append(r"D:\BSplineLearning\Param-Regression\src-py")
-sys.path.append("/home/lsy/Param-Regression/src-py")
+import os
+from dataset import QuaternaryData, FlatData, PROJECT_ROOT
+sys.path.append(PROJECT_ROOT, "Param-Regression", "src-py")
 from sklearn.neural_network import MLPRegressor
 from sklearn.cross_decomposition import PLSRegression
 from sklearn.multioutput import MultiOutputRegressor
@@ -13,10 +14,8 @@ from xgboost import XGBRegressor
 #from statsmodels.gam.api import GLMGam, BSplines
 #from statsmodels.genmod.families import Gaussian
 #from file_processor import process_files
-from dataset import QuaternaryData, FlatData
 from feat import extract_features_batch
 from utils import normalize
-import os
 import time
 import pickle
 
@@ -60,11 +59,11 @@ def evaluate_model(model, X_train, X_test, y_train, y_test, size, save = True):
             "train_time": train_time * 1e3, "test_time": test_time * 1e3}
 
 # Data preprocessing
-root_dir = "/home/lsy/pseudo_label/heuristic_split_dataset"
+root_dir = os.path.join(PROJECT_ROOT, "pseudo_label", "heuristic_split_dataset")
 
-train_dataset = FlatData("/home/lsy/pseudo_label/train_500k", "train")
+train_dataset = FlatData(os.path.join(PROJECT_ROOT, "pseudo_label", "train_500k"), "train")
 test_dataset = FlatData(os.path.join(root_dir, "test"), "test")
-sup_root_dir = "/home/lsy/pseudo_label/supplement"
+sup_root_dir = os.path.join(PROJECT_ROOT, "pseudo_label", "supplement")
 sup_test_dataset = FlatData(os.path.join(sup_root_dir, "test"), "test")
 
 train_point_list = train_dataset.point_list[:250000]

@@ -1,7 +1,8 @@
 import os
 import numpy as np
 import sys
-sys.path.append(r"D:\BSplineLearning\Param-Regression\src-py")
+from dataset import PROJECT_ROOT
+sys.path.append(os.path.join(PROJECT_ROOT, "Param-Regression", "src-py"))
 import pandas as pd
 from tqdm import tqdm
 import pickle
@@ -13,15 +14,13 @@ from utils import normalize
 
 
 if __name__ == "__main__":
-    model_path = os.path.join('saved_model', "XGBClassifier200000-1-cor3.pickle")
+    model_path = os.path.join(PROJECT_ROOT, "Param-Regression", "src-py", 'saved_model', "XGBClassifier200000-1-cor3.pickle")
     seq_len = 10
     del_feat = 'npc'
-    data_dir = r"D:\BSplineLearning\sequential_data\test_" + str(seq_len)
-    output_root_dir = r"D:\BSplineLearning\pseudo_label\seq_pred\class\test_" + str(seq_len)
+    data_dir = os.path.join(PROJECT_ROOT, "sequential_data", f"test_{seq_len}")
+    output_root_dir = os.path.join(PROJECT_ROOT, "pseudo_label", "seq_pred", "class", f"test_{seq_len}")
     print(del_feat, data_dir)
     feat_dict = {'none':[], 'npc': list(range(8)), 'rcl': [8, 9, 10], 'cvl': 11, 'san': [12, 13], 'dsa': 14, 'daa': 15}
-    # data_dir = r"D:\BSplineLearning\variable_length\split_dataset_15\test"
-    # output_root_dir = r"D:\BSplineLearning\variable_length\split_dataset_15\class"
     if not os.path.exists(output_root_dir):
         os.makedirs(output_root_dir)
     number = 0

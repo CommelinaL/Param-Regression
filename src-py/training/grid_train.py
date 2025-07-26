@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
 import sys
-sys.path.append(r"D:\BSplineLearning\Param-Regression\src-py")
-sys.path.append("/home/lsy/Param-Regression/src-py")
+from dataset import PROJECT_ROOT
+import os
+sys.path.append(os.path.join(PROJECT_ROOT, "Param-Regression", "src-py"))
 from sklearn.neural_network import MLPRegressor
 from sklearn.cross_decomposition import PLSRegression
 from sklearn.multioutput import MultiOutputRegressor
@@ -45,7 +46,7 @@ model_dict = {"PLS": (PLSRegression, {"n_components" : 4}),
 print(model_name, param_name)
 
 def evaluate_model(model, X_train, X_test, y_train, y_test, test_param, save = True):
-    save_path = os.path.join('saved_model', 'param_grid_test', model_name+'_on_' + param_name)
+    save_path = os.path.join(PROJECT_ROOT, "Param-Regression", "src-py", 'saved_model', 'param_grid_test', model_name+'_on_' + param_name)
     if save and os.path.exists(save_path) == False:
         os.makedirs(save_path)
     file_path = os.path.join(save_path, str(test_param) +'.pickle')
@@ -72,11 +73,10 @@ def evaluate_model(model, X_train, X_test, y_train, y_test, test_param, save = T
             "train_time": train_time * 1e3, "test_time": test_time * 1e3}
 
 # Data preprocessing
-root_dir = "/home/lsy/pseudo_label/heuristic_split_dataset"
-
-train_dataset = FlatData("/home/lsy/pseudo_label/sup_500k", "train")
+root_dir = os.path.join(PROJECT_ROOT, "pseudo_label", "heuristic_split_dataset")
+train_dataset = FlatData(os.path.join(PROJECT_ROOT, "pseudo_label", "train_500k"), "train")
 test_dataset = FlatData(os.path.join(root_dir, "test"), "test")
-sup_root_dir = "/home/lsy/pseudo_label/supplement"
+sup_root_dir = os.path.join(PROJECT_ROOT, "pseudo_label", "supplement")
 sup_test_dataset = FlatData(os.path.join(sup_root_dir, "test"), "test")
 
 train_point_list = train_dataset.point_list[:250000]

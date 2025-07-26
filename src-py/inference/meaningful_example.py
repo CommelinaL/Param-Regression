@@ -2,19 +2,20 @@ import os
 import numpy as np
 import pickle
 import sys
-sys.path.append(r"D:\BSplineLearning\Param-Regression\src-py")
+from dataset import PROJECT_ROOT
+sys.path.append(os.path.join(PROJECT_ROOT, "Param-Regression", "src-py"))
 from utils import read_pts_from_file, write_vector_to_file
 from feat import extract_features_batch
 from utils import normalize
 if __name__ == "__main__":
     del_feat = 'npc'
     dataset_size = 250000
-    regress_model_path = r"D:\BSplineLearning\Param-Regression\src-py\saved_model\data_"+str(dataset_size)+"_wo_"+del_feat+"\\MLP with manual feature.pickle"
-    class_model_path = os.path.join('saved_model', "XGBClassifier200000-1-cor3.pickle")
+    regress_model_path = os.path.join(PROJECT_ROOT, "Param-Regression", "src-py", "saved_model", f"data_{dataset_size}_wo_{del_feat}", "MLP with manual feature.pickle")
+    class_model_path = os.path.join(PROJECT_ROOT, "Param-Regression", "src-py", 'saved_model', "XGBClassifier200000-1-cor3.pickle")
     base = "clash"
-    item_path = "D:\\BSplineLearning\\Param-Regression\\meaningful_examples\\"+base+".txt"
-    regress_dir = "D:\\BSplineLearning\\Param-Regression\\meaningful_examples\\regress"
-    class_dir = "D:\\BSplineLearning\\Param-Regression\\meaningful_examples\\class"
+    item_path = os.path.join(PROJECT_ROOT, "Param-Regression", "meaningful_examples", f"{base}.txt")
+    regress_dir = os.path.join(PROJECT_ROOT, "Param-Regression", "meaningful_examples", "regress")
+    class_dir = os.path.join(PROJECT_ROOT, "Param-Regression", "meaningful_examples", "class")
     if not os.path.exists(class_dir):
         os.makedirs(class_dir)
     feat_dict = {'none':[], 'npc': list(range(8)), 'rcl': [8, 9, 10], 'cvl': 11, 'san': [12, 13], 'dsa': 14, 'daa': 15}

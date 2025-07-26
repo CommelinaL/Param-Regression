@@ -1,7 +1,9 @@
 import numpy as np
 import pandas as pd
+import os
 import sys
-sys.path.append(r"D:\BSplineLearning\Param-Regression\src-py")
+from dataset import PROJECT_ROOT, QuaternaryData, FlatData
+sys.path.append(os.path.join(PROJECT_ROOT, "Param-Regression", "src-py"))
 from sklearn.linear_model import LinearRegression, Lasso, Ridge, BayesianRidge, ElasticNet
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, AdaBoostRegressor
@@ -16,10 +18,8 @@ from sklearn.metrics import root_mean_squared_error, r2_score, median_absolute_e
 from sklearn.multioutput import MultiOutputRegressor
 from xgboost import XGBRegressor
 from file_processor import process_files
-from dataset import QuaternaryData, FlatData
 from feat import extract_features_batch
 from utils import normalize
-import os
 import time
 import pickle
 from custom_models import MyPolyRegressor, MyPCR, MultiLinearGAM, IsoMapRegressor, LLERegressor, SpectralRegressor
@@ -48,11 +48,11 @@ print(local_len, del_feat)
 feat_dict = {'none': [], 'npc': list(range(2*local_len)), 'rcl': list(range(2*local_len, 3*local_len-1)),
              'cvl': 3*local_len-1, 'san': list(range(3*local_len, 4*local_len-2)), 
              'daa': list(range(4*local_len-2, 5*local_len-5)), 'dsa':list(range(5*local_len-5, 6*local_len-8))}
-root_dir = r"D:\BSplineLearning\variable_length\split_dataset_" + str(local_len)
+root_dir = os.path.join(PROJECT_ROOT, "variable_length", "split_dataset_" + str(local_len))
 
 # train_dataset = FlatData(os.path.join(root_dir, "train"), "train")
 test_dataset = FlatData(os.path.join(root_dir, "test"), "test")
-train_dataset = FlatData(r"D:\BSplineLearning\variable_length\train_500k_"+str(local_len), "train")
+train_dataset = FlatData(os.path.join(PROJECT_ROOT, "variable_length", "train_500k_"+str(local_len)), "train")
 
 train_point_list = train_dataset.point_list
 train_target_list = train_dataset.target_list

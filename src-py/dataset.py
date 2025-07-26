@@ -3,6 +3,8 @@ import numpy as np
 from tqdm import tqdm
 from utils import read_vector_from_file, read_pts_from_file
 
+PROJECT_ROOT = "D:\\BSplineLearning"
+
 
 class QuaternaryData:
     def __init__(self, root_dir, mode = "train"):

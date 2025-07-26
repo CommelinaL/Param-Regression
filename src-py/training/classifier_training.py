@@ -3,12 +3,12 @@ import numpy as np
 import pickle
 import os
 from sklearn.metrics import roc_auc_score
-from dataset import ClassData
+from dataset import ClassData, PROJECT_ROOT
 from feat import extract_features_batch
 
 if __name__ == '__main__':
     # Data preprocessing
-    root_dir = r"D:\BSplineLearning\HybridParameterization\data\TD4-80000-3-cor1"
+    root_dir = os.path.join(PROJECT_ROOT, "classification", "split_dataset")
 
     train_dataset = ClassData(os.path.join(root_dir, "traincrv"), "train")
     test_dataset = ClassData(os.path.join(root_dir, "testcrv"), "test")

@@ -1,13 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import os
+from dataset import PROJECT_ROOT
 
 feat_dict = {'none': [], 'npc': list(range(8)), 'rcl': [8, 9, 10], 'cvl': 11, 'san': [12, 13],
             'dsa': 14, 'daa': 15, 
-            # 'cvl_dsa': [11, 14]
             }
 model_name = "mlp"
-path_dict = {del_feat: r"D:\BSplineLearning\Param-Regression\src-cpp\B-spline-curve-fitting\test_dataset_size_{}_wo_{}_on_15.csv".format(model_name, del_feat)
+csv_root = os.path.join(PROJECT_ROOT, "Param-Regression", "src-cpp", "B-spline-curve-fitting")
+path_dict = {del_feat: os.path.join(csv_root, "test_dataset_size_{}_wo_{}_on_15.csv".format(model_name, del_feat))
              for del_feat in feat_dict}
 x = np.arange(10000, 250001, 10000)
 marker_dict = {'none': 'o-r', 'npc': 's-g', 'rcl': 'v-b', 'cvl': '^-c', 'san': '1-m', 'daa': '2-y', 'dsa': '3-k', 'cvl_dsa':'4:b'}

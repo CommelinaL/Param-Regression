@@ -3,6 +3,7 @@ import random
 import shutil
 import math
 from tqdm import tqdm
+from dataset import PROJECT_ROOT
 
 def process_files(source_dir, target_dir, test_ratio=0.2):
     train_dir = os.path.join(target_dir, "train")
@@ -73,8 +74,8 @@ def process_flat_files(source_dir, target_dir, test_ratio=0.2):
     
 
 if __name__ == "__main__":
-    source_dir = r"D:\BSplineLearning\variable_length\Label_15"
-    target_dir = r"D:\BSplineLearning\variable_length\split_dataset_15"
+    source_dir = os.path.join(PROJECT_ROOT, "variable_length", "Label_15")
+    target_dir = os.path.join(PROJECT_ROOT, "variable_length", "split_dataset_15")
     process_flat_files(source_dir, target_dir)
     # from dataset import QuaternaryData
     # data = QuaternaryData(os.path.join(target_dir, 'test'), "test")

@@ -2,7 +2,8 @@ import os
 import numpy as np
 import pandas as pd
 import sys
-sys.path.append(r"D:\BSplineLearning\Param-Regression\src-py")
+from dataset import PROJECT_ROOT
+sys.path.append(os.path.join(PROJECT_ROOT, "Param-Regression", "src-py"))
 from tqdm import tqdm
 import pickle
 import shutil
@@ -16,9 +17,9 @@ if __name__ == "__main__":
     model_name = "PLS"
     param_name = "n_components"
     print(model_name, param_name)
-    model_dir = r"saved_model\\param_grid_test\\" + model_name + "_on_" + param_name
-    data_dir = r"D:\BSplineLearning\variable_length\split_dataset_"+str(seq_len)+r"\test"
-    output_root_dir = r"D:\BSplineLearning\variable_length\split_dataset_"+str(seq_len) + "\\param_grid_test\\" + model_name + "_on_" + param_name
+    model_dir = os.path.join(PROJECT_ROOT, "Param-Regression", "src-py", "saved_model", "param_grid_test", model_name + "_on_" + param_name)
+    data_dir = os.path.join(PROJECT_ROOT, "variable_length", "split_dataset_" + str(seq_len), "test")
+    output_root_dir = os.path.join(PROJECT_ROOT, "variable_length", "split_dataset_" + str(seq_len), "param_grid_test", model_name + "_on_" + param_name)
 
     model_list = os.listdir(model_dir)
     # model_name_list = ["PLS", "Linear Regression", "Decision Tree", "Quadratic Regression", "MLP with manual feature", 

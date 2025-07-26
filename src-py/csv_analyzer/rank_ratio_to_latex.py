@@ -1,11 +1,12 @@
 import pandas as pd
 import os
 from csv_to_latex import csv_to_latex_pandas
+from dataset import PROJECT_ROOT
 
 dataset_size = 250000
 del_feat = "npc"
 model_name = "mlp"
-input_root = r"D:\BSplineLearning\Param-Regression\src-cpp\B-spline-curve-fitting"
+input_root = os.path.join(PROJECT_ROOT, "Param-Regression", "src-cpp", "B-spline-curve-fitting")
 base_list = {seq_len: "test_{len}_{model}_wo_{feat}_{size}.csv".format(len=seq_len, model=model_name, feat=del_feat, size=dataset_size) for seq_len in range(10, 31, 5)}
 input_file_list = {seq_len: os.path.join(input_root, base_list[seq_len]) for seq_len in range(10, 31, 5)}
 rank_cnt = 3

@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
+from dataset import QuaternaryData, FlatData, PROJECT_ROOT
 import sys
-sys.path.append(r"D:\BSplineLearning\Param-Regression\src-py")
+sys.path.append(os.path.join(PROJECT_ROOT, "Param-Regression", "src-py"))
 from sklearn.linear_model import LinearRegression, Lasso, Ridge, BayesianRidge, ElasticNet, RANSACRegressor
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, AdaBoostRegressor
@@ -16,7 +17,6 @@ from sklearn.metrics import root_mean_squared_error, r2_score, median_absolute_e
 from sklearn.multioutput import MultiOutputRegressor
 from xgboost import XGBRegressor
 from file_processor import process_files
-from dataset import QuaternaryData, FlatData
 from feat import extract_features_batch
 from utils import normalize
 import os
@@ -42,16 +42,13 @@ class rbf_normalized(RBF):
             return K, grad_k
 
 # Data preprocessing
-root_dir = r"D:\BSplineLearning\pseudo_label\heuristic_split_dataset"
-if os.path.exists(root_dir) == False:
-    source_dir = r"E:\BSplineLearning\src-cpp\B-spline-curve-fitting\LabelledData"
-    process_files(source_dir, root_dir, test_ratio=0.2)
+root_dir = os.path.join(PROJECT_ROOT, "pseudo_label", "heuristic_split_dataset")
 
 # train_dataset = FlatData(os.path.join(root_dir, "train"), "train")
 test_dataset = FlatData(os.path.join(root_dir, "test"), "test")
-sup_root_dir = r"D:\BSplineLearning\pseudo_label\supplement"
+sup_root_dir = os.path.join(PROJECT_ROOT, "pseudo_label", "supplement")
 sup_test_dataset = FlatData(os.path.join(sup_root_dir, "test"), "test")
-train_dataset = FlatData(r"D:\BSplineLearning\pseudo_label\train_500k", "train")
+train_dataset = FlatData(os.path.join(PROJECT_ROOT, "pseudo_label", "train_500k", "train"))
 
 train_point_list = train_dataset.point_list
 train_target_list = train_dataset.target_list
