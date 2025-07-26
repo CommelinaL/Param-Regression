@@ -1,19 +1,60 @@
 # A parametrization method for B-spline curve interpolation via supervised regression
 
+**Authors:** Shangyi Lin, Jieqing Feng*  
+**Contact:** jqfeng@cad.zju.edu.cn (Corresponding author)  
+
+---
+
+This repository contains code and data associated with the paper *"A parametrization method for B-spline curve interpolation via supervised regression"*.
+
+## Requirements
+
+### Operating System
+- Windows 10 or 11
+
+### C++ Requirements
+- **Windows SDK Version:** 10.0
+- **Platform Toolset:** Visual Studio 2022 (v143)
+- **C++ Language Standard:** ISO C++14 (`/std:c++14`)
+
+### Python Requirements
+Python dependencies can be installed by running the following commands:
+
+```
+cd src-py
+setup_env.bat
+```
+
 ## Project Structure
 
 The repository contains source code in two languages:
 - **C++ source files**: Located in `src-cpp/`
 - **Python source files**: Located in `src-py/`
 
-### Compilation Instructions
+## Compilation Instructions
 
-The main C++ files are stored in `src-cpp/B-spline-curve-fitting/main_scripts/`. To compile and run a specific program:
+The main C++ files are located in `src-cpp/B-spline-curve-fitting/main_scripts/`.
 
-1. Copy the desired `main.cpp` file from `src-cpp/B-spline-curve-fitting/main_scripts/`
-2. Paste it into `src-cpp/B-spline-curve-fitting/`
-3. Rename the file to `main.cpp`
-4. Compile and execute the program
+1. Clone the repository to a local path (e.g., `D:\BSplineLearning`).
+2. Update the `PROJECT_ROOT` path:
+   - In C++: modify the macro `PROJECT_ROOT` in `src-cpp/B-spline-curve-fitting/alg_Interpolation.h`.
+   - In Python: modify the string `PROJECT_ROOT` in `src-py/dataset.py`.
+
+### To compile and run a specific C++ program:
+
+1. Copy the desired main C++ file from `src-cpp/B-spline-curve-fitting/main_scripts/`.
+2. Paste it into `src-cpp/B-spline-curve-fitting/`.
+3. Rename the file to `main.cpp`.
+4. Compile and run the program.
+
+## Dataset
+
+The dataset zip files may be downloaded from the following links:
+
+- [Primary link](https://www.jianguoyun.com/p/DUtEX0IQyZLMDRie-osGIAA)
+- [Backup link](https://pan.baidu.com/s/1m03oEMxxfQ2SKXc240UPnQ?pwd=54xu) (password: 54xu)
+
+Unzip the datasets and place them directly under the `PROJECT_ROOT` directory.
 
 ## Method Replication and Evaluation
 
@@ -47,7 +88,7 @@ Compare with idealized classifier approach:
 2. Run prediction: `src-py/inference/seq_pred_del_feat.py`
 3. Execute comparison: `src-cpp/B-spline-curve-fitting/main_scripts/main-8. superior count.cpp`
 
-### 7. Meaningful examples
+### 7. Meaningful Examples (Representative Figure Replication)
 Test the proposed method on illustrative examples, such as the "clash" logo or rolling door slats, and reproduce the figures below
 1. Run prediction: `src-py/inference/meaningful_example.py`
 2. Generate curve data: `src-cpp/B-spline-curve-fitting/main_scripts/main-10. meaningful example.cpp`
@@ -81,11 +122,8 @@ Determine optimal parameters for regression models:
 2. Run prediction: `src-py/inference/local_len_metric_del_feat.py`
 3. Execute tests: `src-cpp/B-spline-curve-fitting/main_scripts/main-4. testing local len.cpp`
 
-## System Requirements
-**Operating System**: Windows 10 or 11
-
 ## Usage Notes
 
-- Ensure all dependencies are installed for both Python and C++ components (refer to `src-py\environment.yml` and `src-py\requirements.txt` for Python dependencies)
+- Ensure all dependencies are installed for both Python and C++ components
 - Follow the sequential execution order for each workflow
 - The C++ compilation step must be repeated for each different main script you wish to run

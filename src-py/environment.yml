@@ -1,4 +1,4 @@
-name: traditional
+name: paramRegression
 channels:
   - conda-forge
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
