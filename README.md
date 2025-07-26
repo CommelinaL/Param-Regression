@@ -17,6 +17,8 @@ This repository contains code and data associated with the paper *"A parametriza
 - **Platform Toolset:** Visual Studio 2022 (v143)
 - **C++ Language Standard:** ISO C++14 (`/std:c++14`)
 
+For more detailed instructions on setting up the development environment, please refer to the full guide in [cpp_requirements.md](./cpp_requirements.md).
+
 ### Python Requirements
 Python dependencies can be installed by running the following commands:
 
